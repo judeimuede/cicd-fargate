@@ -11,6 +11,6 @@ phases:
   post_build:
     commands:
       - docker push 296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal
-      - printf '[{"name":helloWorld,"imageUri":"%s"}]' 296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal > imagedefinitions.json
+      - printf '[{"name":helloWorld,"imageUri":"296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal"}]' > imagedefinitions.json
   artifacts:
     files: imagedefinitions.json
