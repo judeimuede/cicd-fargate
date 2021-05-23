@@ -6,11 +6,11 @@ phases:
       - $(aws ecr get-login --no-include-email --region us-east-1)
   build:
     commands:
-      - docker build -t fargate-local:latest .
+      - docker build -t flocal:latest .
       - docker tag flocal 296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal
   post_build:
     commands:
       - docker push 296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal
       - printf '[{"name":helloWorld,"imageUri":"%s"}]' 296274010522.dkr.ecr.us-east-1.amazonaws.com/flocal > imagedefinitions.json
-artifacts:
-  files: imagedefinitions.json
+  artifacts:
+    files: imagedefinitions.json
